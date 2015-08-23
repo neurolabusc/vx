@@ -12,14 +12,14 @@ Most volume rendering tools are one of three types: 2D texture slicing, 3D textu
 Run the appropriate executable from the command line. For Macintosh OSX run 'vx_osx', for Linux run 'vx_linux' and for SGI Irix you run 'vx_irix'. By default, the software will load the image 'vx.nii.gz' - to open a specific file just specify the file name when you launch the program, e.g. 'vx_irix vx256.nii.gz'.
 
 Once the program is running you can use the mouse to rotate the image. Here are a few keyboard commands:
- arrow keys     : rotate object
- b key          : background color change
- c key          : clip plane on/off
- q key          : quality better/worse
- 1/2 keys       : change brightness
- 3/4 keys       : change contrast
- 5/6 keys       : change color table
- esc key        : quit
+ - arrow keys     : rotate object
+ - b key          : background color change
+ - c key          : clip plane on/off
+ - q key          : quality better/worse
+ - 1/2 keys       : change brightness
+ - 3/4 keys       : change contrast
+ - 5/6 keys       : change color table
+ - esc key        : quit
 
 ##### Compiling
 
