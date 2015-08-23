@@ -39,6 +39,7 @@ Once the program is running you can use the mouse to rotate the image. Here are 
  - This software can only view NIfTI images saved with the .nii or .nii.gz extension. You can convert DICOM images to NIfTI using dcm2nii.
  - This software can only reads 8-bit images.
  - This software ignores the spatial transform stored in the NIfTI header. The image dimensions may not correspond to what you expect.
+ - Be aware that some graphics cards (pre 2006) have problems with images with dimensionsthat are not powers of two. For example, if you have an image with 109 slices you will have to use another software to pad the image to have 128 slices.
  
  
 ##### Inspiration
@@ -50,15 +51,16 @@ This code leverages these open source projects
  - [Volume from the Advanced97 glut demos (view-aligned 3D, 32 bytes per voxel)](https://www.cosc.brocku.ca/Offerings/3P98/course/OpenGL/glut-3.7/progs/advanced97/volume.c)
  - [MRIcroGL: Chris Rorden (raycasting, 64 bytes per voxel)](http://www.mccauslandcenter.sc.edu/mricrogl/)
  - [NIFTI header](http://nifti.nimh.nih.gov/pub/dist/src/niftilib/nifti1.h)
-
-
+ - [Leandro R Barbagallo's WebGL raycaster](https://github.com/lebarba/WebGLVolumeRendering)
 
 ##### Versions
 
 123-August-2015
  - Initial release
 
- 
+##### Sample images
+
+The first three panels below show this software displaying the sample images included with the software. The right-most image shows the same image as the the third but created using a ray caster (MRIcroGL).
 
 
-![alt tag](https://github.com/neurolabusc/spmScripts/blob/master/disco_sm.png)
+![alt tag](https://raw.githubusercontent.com/neurolabusc/vx/master/vx.jpg)
