@@ -36,7 +36,7 @@
 *  gcc vx.c -o vx -lglut -lGLU -lGL -lXext -lX11 -lm
 * For SGI (using SGI's MIPSpro)
 *  cc vx.c -o vx /usr/lib/libglut.a -lGLU -lGL -lXmu -lXext -lX11 -lm
-* Or simply (also not tested)
+* Or simply 
 *  cc vx.c -o vx -lglut -lGLU -lGL -lXmu -lXext -lX11 -lm
 *
 *Compiling 3D

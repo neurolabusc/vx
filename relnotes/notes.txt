@@ -1,0 +1,11 @@
+This is a simple volume renderer. It can read NIfTI format images. You can convert DICOM images to the NIfTI format using a tool like dcm2nii. 
+
+Limitations:
+ 1.) Requires a lot of texture memory (12 bytes per voxel)
+ 2.) Only reads 8-bit image data.
+ 3.) Ignores spatial matrix stored in header.
+ 
+ Versions:
+ 
+ 23Aug2015 Initial Release
+ 
