@@ -37,17 +37,12 @@ struct RGBAnode makeRGBAnode (unsigned char r, unsigned char g, unsigned char b,
     return ret;
 }
 
-    /*next adjust opacity: thinner slices are more tranlucent than thicker slabs*/
-    //float ax = (float)a * opacityCorrection;
-    //if (ax < 0) ax = 0;
-    //if (ax > 255) ax = 255; 
-    //(unsigned char)round_c99(ax)
-    
-
 void filllut(struct RGBAnode loNode, struct RGBAnode hiNode, uint32_t* lut) {
-	int i;    
-	for (i = loNode.intensity; i <= hiNode.intensity; i++)
-		lut[i] = lerprgb(loNode.rgba, hiNode.rgba, loNode.intensity, hiNode.intensity,i);
+    int i, mn, mx;
+    mn = (loNode.intensity >= 0) ? loNode.intensity : 0;
+    mx = (hiNode.intensity <= 256) ? hiNode.intensity : 256;
+    for (i = mn; i < mx; i++)
+        lut[i] = lerprgb(loNode.rgba, hiNode.rgba, loNode.intensity, hiNode.intensity,i);
 }
 
 void createlutX(int colorscheme, uint32_t* lut) {
