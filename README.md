@@ -46,7 +46,7 @@ Once the program is running you can use the mouse to rotate the image. Here are 
 This code leverages these open source projects
 
  - [VolumeRendering: Divine Augustine (view-aligned 3D, 32 bytes per voxel)](http://www.codeproject.com/Articles/352270/Getting-started-with-Volume-Rendering)
- - [Vox: Yusuf Attarwala (slice-aligned 3D, 16 bytes per voxel)](ftp://ftp.sgi.com/sgi/demos/)
+ - [Vox: Yusuf Attarwala (slice-aligned 3D, 16 bytes per voxel)](https://www.cosc.brocku.ca/Offerings/3P98/course/OpenGL/glut-3.7/progs/advanced/vox.c)
  - [Volume from the Advanced97 glut demos (view-aligned 3D, 32 bytes per voxel)](https://www.cosc.brocku.ca/Offerings/3P98/course/OpenGL/glut-3.7/progs/advanced97/volume.c)
  - [MRIcroGL: Chris Rorden (ray casting, 64 bytes per voxel)](http://www.mccauslandcenter.sc.edu/mricrogl/)
  - [NIFTI header](http://nifti.nimh.nih.gov/pub/dist/src/niftilib/nifti1.h)
