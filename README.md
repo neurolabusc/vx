@@ -54,10 +54,8 @@ This code leverages these open source projects
 
 ##### Versions
 
-23-August-2015
- - Initial release
-30-August-2015
- - Added ray casting
+ - 23-August-2015: Initial release
+ - 30-August-2015: Added ray casting
 
 ##### Sample images
 
