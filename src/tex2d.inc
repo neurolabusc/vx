@@ -28,6 +28,8 @@ int sliceBytes, nTex, slice, yoff, i;
 			yoff = i * sliceBytes;
 			for (slice = 0; slice < sliceBytes; slice++)
 				rgbaVx[slice] = gRGBAlut[vptr[slice+ yoff] ];
+			//vp = vptr + yoff;
+			//glTexImage2D(GL_TEXTURE_2D, 0, GL_INTENSITY, gDimXYZ[0], gDimXYZ[1], 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, vp);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, gDimXYZ[0], gDimXYZ[1], 0, GL_RGBA, GL_UNSIGNED_BYTE, rgbaVx);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -48,6 +50,7 @@ int sliceBytes, nTex, slice, yoff, i;
 			for (slice = 0; slice < sliceBytes; slice++)
 				rgbaVx[slice] = gRGBAlut[sliceVx[slice] ];
 			glBindTexture(GL_TEXTURE_2D, gTex2D[i+gDimXYZ[2]]);
+			//glTexImage2D(GL_TEXTURE_2D, 0, GL_INTENSITY, gDimXYZ[0], gDimXYZ[2], 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, sliceVx);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, gDimXYZ[0], gDimXYZ[2], 0, GL_RGBA, GL_UNSIGNED_BYTE, rgbaVx);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -68,6 +71,7 @@ int sliceBytes, nTex, slice, yoff, i;
 			for (slice = 0; slice < sliceBytes; slice++)
 				rgbaVx[slice] = gRGBAlut[sliceVx[slice] ];
 			glBindTexture(GL_TEXTURE_2D, gTex2D[i+gDimXYZ[1]+gDimXYZ[2]]);
+			//glTexImage2D(GL_TEXTURE_2D, 0, GL_INTENSITY, gDimXYZ[1], gDimXYZ[2], 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, sliceVx);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, gDimXYZ[1], gDimXYZ[2], 0, GL_RGBA, GL_UNSIGNED_BYTE, rgbaVx);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

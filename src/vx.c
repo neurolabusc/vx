@@ -447,7 +447,11 @@ double getUnixTime(void) {
 void animate(void) {
 /* rotate object and report performance */
 	double sec;
-	#define animationReportFrames 100
+	#ifdef __sgi
+		#define animationReportFrames 10
+	#else
+		#define animationReportFrames 100
+	#endif
 	if ((gStartClock == 0) || (gAnimationCount >= animationReportFrames)) {
 		sec = (getUnixTime() - gStartClock);
 		if ((gStartClock != 0) && (sec > 0.0))
@@ -455,16 +459,6 @@ void animate(void) {
 		gAnimationCount = 0;
 		gStartClock = getUnixTime();
 	}
-	#ifdef __sgi
-	if (gAnimationCount == 1) { /*for very slow computers: don't make user wait hours for report*/
-		sec = (getUnixTime() - gStartClock);
-		if (sec > 0.1f) { 
-			printf("SLOW RENDERING frames per second: %g\n", 1 /sec);
-			gAnimationCount = 0;
-			gStartClock = getUnixTime();
-		}			
-	}
-	#endif
 	gAnimationCount++;
     gAzimuth += 5.0;
     glutPostRedisplay();
