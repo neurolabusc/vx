@@ -1,17 +1,24 @@
 /* global variables specific to 2D */
 GLuint *gTex2D;
 
-void loadTex(unsigned char *vptr, int isInit) { /* load stack of 2D textures */
-static const GLdouble clipPlane[] = {0.0, -0.707, 0.3, 0.3};
+void freeTex2D () {
+ //release textures used by 2D texture mapping
+ int nTex;
+ nTex = gDimXYZ[0] + gDimXYZ[1] + gDimXYZ[1]; //for each of three dimensions, stack of 2D slices aligned to that dim
+ glDeleteTextures(nTex, gTex2D);
+}
+
+void loadTex2D(unsigned char *vptr, int isInit) { /* load stack of 2D textures */
+static const GLdouble clipPlane2D[] = {0.0, -0.707, 0.3, 0.3};
 unsigned char *sliceVx, *vp;
 uint32_t *rgbaVx;
 int sliceBytes, nTex, slice, yoff, i;
 	nTex = gDimXYZ[0] + gDimXYZ[1] + gDimXYZ[1]; //for each of three dimensions, stack of 2D slices aligned to that dim
 	if (isInit) {
-		printf("2D Textures require %gmb (3 volumes, 4 bytes per voxel)\n", (3.0f * 4.0f * (float)(gDimXYZ[0]*gDimXYZ[1]*gDimXYZ[2]))/1048576.0);
+		printf("2D Textures require %gmb (12 bytes per voxel)\n", (3.0f * 4.0f * (float)(gDimXYZ[0]*gDimXYZ[1]*gDimXYZ[2]))/1048576.0);
 		gTex2D = (GLuint *) malloc(nTex * sizeof(GLuint *));
 		glGenTextures(nTex, gTex2D);
-		glClipPlane(GL_CLIP_PLANE0, clipPlane);
+		glClipPlane(GL_CLIP_PLANE0, clipPlane2D);
 	}
 	//AXIAL load Slices of dimensions [1,2] (AXIAL) - simple as these are in-plane
 	sliceBytes = gDimXYZ[0] * gDimXYZ[1];
@@ -72,7 +79,7 @@ int sliceBytes, nTex, slice, yoff, i;
 	
 } /* loadTex() */
 
-void drawGL() { /*see page 52-53 of Engel et al., (2008) Real-time volume graphics */
+void drawGL2D() { /*see page 52-53 of Engel et al., (2008) Real-time volume graphics */
 	/* volume render using a series of 2D textures */
 	int nslices, slice, i;
 	float fStep, vF, vLR, vUD;
@@ -101,25 +108,25 @@ void drawGL() { /*see page 52-53 of Engel et al., (2008) Real-time volume graphi
 			/*axial: plane=XY, slices=Z*/
 			nslices = gDimXYZ[2];
 			slice = 0;
-			vLR = gScaleXYZ[0]; 	
-			vUD = gScaleXYZ[1];
-			vF = -gScaleXYZ[2]; 
+			vLR = gScale2DXYZ[0]; 	
+			vUD = gScale2DXYZ[1];
+			vF = -gScale2DXYZ[2]; 
 			break;
 		case 1:
 			/*coronal: plane=XZ, slices=Y*/
 			nslices = gDimXYZ[1];
 			slice = gDimXYZ[2];
-			vLR = gScaleXYZ[0]; 	
-			vF = -gScaleXYZ[1]; 
-			vUD = gScaleXYZ[2];
+			vLR = gScale2DXYZ[0]; 	
+			vF = -gScale2DXYZ[1]; 
+			vUD = gScale2DXYZ[2];
 			break;
 		default:
 			/*sagittal: plane=YZ, slices=X*/
 			nslices = gDimXYZ[0];
 			slice = gDimXYZ[2]+gDimXYZ[1];
-			vUD = gScaleXYZ[2]; 
-			vLR= gScaleXYZ[1];
-			vF = -gScaleXYZ[0];
+			vUD = gScale2DXYZ[2]; 
+			vLR= gScale2DXYZ[1];
+			vF = -gScale2DXYZ[0];
 			break;
 	}
 	fStep = (fabs(vF) * 2)/nslices;
