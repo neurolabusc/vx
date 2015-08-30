@@ -78,7 +78,11 @@
 #define MENU_HELP 3
 #define MENU_EXIT 4
 #define maxColorTable 14  /* color tables are from 0..14 [grayscale..blue] */
-#define maxDrawMode 2 /* 0=2DTexture, 1=3DTexture, 2=Ray cast */
+#ifdef __sgi
+ #define maxDrawMode 1 /* 0=2DTexture, 1=3DTexture, 2=Ray cast */
+#else
+ #define maxDrawMode 2 /* 0=2DTexture, 1=3DTexture, 2=Ray cast */
+#endif 
 
 /* global variables */
 typedef uint32_t tRGBAlut[256];
@@ -282,15 +286,19 @@ void scrnsize(int w, int h) {
 	//printf("%d  %d\n", w, h);	
 }
 
-#include "texRay.inc"
+#ifndef __sgi
+ #include "texRay.inc"
+#endif
 #include "tex3d.inc"
 #include "tex2d.inc"
 
 void drawGL() { /* volume render using a single 3D texture */
 	if (gDrawMode == 1)
 		drawGL3D();
+#ifndef __sgi
 	else if (gDrawMode == 2)	
 		drawGLRay();
+#endif
 	else
 		drawGL2D();
 }
@@ -298,8 +306,10 @@ void drawGL() { /* volume render using a single 3D texture */
 void loadTex(unsigned char *vptr, int isInit) { /* volume render using a single 3D texture */
 	if (gDrawMode == 1)
 		loadTex3D(vptr, isInit);
+#ifndef __sgi
 	else if (gDrawMode == 2)	
 		loadTexRay(vptr, isInit);
+#endif
 	else
 		loadTex2D(vptr, isInit);
 }
@@ -307,8 +317,10 @@ void loadTex(unsigned char *vptr, int isInit) { /* volume render using a single 
 void changeMode() {
 	if (gDrawMode == 1)
 		freeTex3D();
+#ifndef __sgi
 	else if (gDrawMode == 2)	
 		freeTexRay();
+#endif 
 	else
 		freeTex2D();
 	gDrawMode += 1;
@@ -331,7 +343,9 @@ void changeMode() {
 void resize(int w, int h) {
 	gScrnWid = w;
 	gScrnHt = h;
-	setupRenderRay();	
+	#ifndef __sgi
+	setupRenderRay();
+	#endif	
 	scrnsize(w,h);
 }
 
