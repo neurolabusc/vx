@@ -40,6 +40,9 @@ Once the program is running you can use the mouse to rotate the image. Here are 
  - This software ignores the spatial transform stored in the NIfTI header. The image dimensions may not correspond to what you expect.
  - Be aware that some graphics cards (pre 2006) have problems with images with dimensionsthat are not powers of two. For example, if you have an image with 109 slices you will have to use another software to pad the image to have 128 slices.
  
+##### vxgui
+
+The 'dist' folder also includes a graphical user interface version of this software for Windows (vxgui_win), Macintosh (vxgui_osx) and 64-bit Linux (vxgui_lx). This version allows you to choose between ray casting and 3D view-aligned textures. The ray casting also allows other features such as using gradients to emphasize the edges. The source code for this project is provided in the srcgui folder and requires the free [Lazarus integrated development environment](http://www.lazarus-ide.org).
  
 ##### Inspiration
 
