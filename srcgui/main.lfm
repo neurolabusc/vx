@@ -1,0 +1,138 @@
+object Form1: TForm1
+  Left = 532
+  Height = 448
+  Top = 203
+  Width = 442
+  AllowDropFiles = True
+  Caption = 'OpenGL GLSL raycasting'
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  Position = poScreenCenter
+  LCLVersion = '1.4.0.4'
+  object MainMenu1: TMainMenu
+    left = 96
+    top = 8
+    object File1: TMenuItem
+      Caption = 'File'
+      object Open1: TMenuItem
+        Caption = 'Open'
+        ShortCut = 16463
+        OnClick = Open1Click
+      end
+      object OpenNoGradients1: TMenuItem
+        Caption = 'Open without gradients'
+        ShortCut = 16450
+        OnClick = OpenNoGradients1Cick
+      end
+      object Exit1: TMenuItem
+        Caption = 'Exit'
+        ShortCut = 16472
+        OnClick = Exit1Click
+      end
+    end
+    object Edit1: TMenuItem
+      Caption = 'Edit'
+      object Copy1: TMenuItem
+        Caption = 'Copy'
+        OnClick = Copy1Click
+      end
+    end
+    object MenuView: TMenuItem
+      Caption = 'View'
+      object MenuBackColor: TMenuItem
+        Caption = 'Back color'
+        OnClick = Backcolor1Click
+      end
+      object MenuQuality: TMenuItem
+        Caption = 'High quality'
+        Checked = True
+        OnClick = MenuQualityClick
+      end
+      object MenuSwitchMode: TMenuItem
+        Caption = 'Raycast'
+        Checked = True
+        OnClick = SwitchModeClick
+      end
+    end
+    object MenuRaycast: TMenuItem
+      Caption = 'Raycast'
+      object Color1: TMenuItem
+        Caption = 'Change color table '
+        ShortCut = 16468
+        OnClick = Color1Click
+      end
+      object Shade1: TMenuItem
+        AutoCheck = True
+        Caption = 'Shade Toggle'
+        ShortCut = 16467
+        OnClick = Shade1Click
+      end
+      object Boundary1: TMenuItem
+        AutoCheck = True
+        Caption = 'Enhance boundaries'
+        ShortCut = 16453
+        OnClick = Boundary1Click
+      end
+      object Gradient1: TMenuItem
+        AutoCheck = True
+        Caption = 'Show gradient'
+        ShortCut = 16455
+        OnClick = Gradient1Click
+      end
+      object Perspective1: TMenuItem
+        AutoCheck = True
+        Caption = 'Perspective'
+        ShortCut = 16464
+        OnClick = Perspective1Click
+      end
+    end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object About1: TMenuItem
+        Caption = 'About'
+        OnClick = About1Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'NIfTI (nii, hdr, nii.gz)|*.nii;*.hdr;*.nii.gz'
+    InitialDir = 'C:\'
+    left = 40
+    top = 8
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 152
+    top = 8
+  end
+  object ErrorTimer1: TTimer
+    Enabled = False
+    Interval = 30
+    OnTimer = ErrorTimerOnTimer
+    left = 232
+    top = 16
+  end
+end

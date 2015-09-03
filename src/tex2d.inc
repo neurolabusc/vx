@@ -140,6 +140,11 @@ void drawGL2D() { /*see page 52-53 of Engel et al., (2008) Real-time volume grap
 		fStep = -fStep;
 		vF = -vF;
 	}
+	
+		//	glEnable(GL_DEPTH_TEST);
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		//glDisable(GL_TEXTURE_2D);
+		
 	if (orient > 3) { /*sagittal slice orientation*/
 		for (i = 0; i < nslices; i++) {
 			if ( i % gQuality == 0 ) {
