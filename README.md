@@ -62,6 +62,10 @@ This code leverages these open source projects
 
 ##### Sample images
 
+The images below shows how a rendering can either be constructed by blending slices that are aligned to the object (left), or the viewer (right). Note that using 2D textures requires object-aligned slices, while using 3D textures allows either approach. Object-aligned slices tend to show more artifacts when viewed around 45-degrees off axis.
+
+![alt tag](https://raw.githubusercontent.com/neurolabusc/vx/master/vx_align.jpg
+
 In the columns below the images show the three methods supported by this software: 2D texture slicing (object aligned), 3D texture slicing (viewer aligned) and ray casting. You can switch between methods using the 'm' key. The top row shows high quality rendering while the lower panel shows the faster low-quality performance. You can change the quality by pressing the 'q' key.
 
 ![alt tag](https://raw.githubusercontent.com/neurolabusc/vx/master/vx_methods.jpg)
