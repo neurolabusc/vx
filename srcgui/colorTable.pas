@@ -7,7 +7,7 @@ uses
   dglOpenGL,   Classes, SysUtils;
 
 const  //maximum number of control points for color schemes...
-  maxNodes = 5;
+  maxNodes = 6;
 
 type
   TRGBA = packed record //Next: analyze Format Header structure
