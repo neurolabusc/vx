@@ -44,17 +44,6 @@ Once the program is running you can use the mouse to rotate the image. Here are 
 
 The 'dist' folder also includes a graphical user interface version of this software for Windows (vxgui_win), Macintosh (vxgui_osx) and 64-bit Linux (vxgui_lx). This version allows you to choose between ray casting and 3D view-aligned textures. The ray casting also allows other features such as using gradients to emphasize the edges. The source code for this project is provided in the srcgui folder and requires the free [Lazarus integrated development environment](http://www.lazarus-ide.org).
 
-##### Inspiration
-
-This code leverages these open source projects
-
- - [VolumeRendering: Divine Augustine (view-aligned 3D, 32 bytes per voxel)](http://www.codeproject.com/Articles/352270/Getting-started-with-Volume-Rendering)
- - [Vox: Yusuf Attarwala (slice-aligned 3D, 16 bytes per voxel)](https://www.cosc.brocku.ca/Offerings/3P98/course/OpenGL/glut-3.7/progs/advanced/vox.c)
- - [Volume from the Advanced97 glut demos (view-aligned 3D, 32 bytes per voxel)](https://www.cosc.brocku.ca/Offerings/3P98/course/OpenGL/glut-3.7/progs/advanced97/volume.c)
- - [MRIcroGL: Chris Rorden (ray casting, 64 bytes per voxel)](http://www.mccauslandcenter.sc.edu/mricrogl/)
- - [NIFTI header](http://nifti.nimh.nih.gov/pub/dist/src/niftilib/nifti1.h)
- - [Leandro R Barbagallo's WebGL ray casting](https://github.com/lebarba/WebGLVolumeRendering)
-
 ##### Versions
 
  - 23-August-2015: Initial release
